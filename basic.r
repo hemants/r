@@ -20,7 +20,7 @@ class(var_comples) #4. complex
 1+2
 1-2
 1/4
-1%/%4 #only whole number
+10%/%3 #only whole number
 1*2
 5%%2 #mod/reminder
 5^2
@@ -40,7 +40,7 @@ v2 < v2 && v3 < v1
 vector_num = c(1,2,3,4);vector_num
 class(vector_num)
 
-vector_str = c('a','b',"d");vector_str
+vector_str = c('a','b',"d");vector_str;vector_str[1:2]
 class(vector_str)
 
 vector_bool = c(TRUE,TRUE, FALSE);vector_bool;class(vector_bool)
@@ -109,7 +109,7 @@ e =(1:10);e
 f = d + e;f
 f = d - e;f
 
-#materices -- collection of vectors
+#2. Materices -- collection of vectors
 matrix(1:9,3,3)
 matrix(1:9,3)
 
@@ -138,3 +138,32 @@ mat_a %*% mat_c
 #transpose of matrix
 t(mat_b)
 mat_a %*% t(mat_b)
+
+# use of apply function on matrix
+dataMatrix = matrix(1:25,5,5);dataMatrix
+# do sum and mean operation by column
+apply(dataMatrix, 2, sum)
+apply(dataMatrix, 2, mean)
+
+# do sum and mean operation by row
+apply(dataMatrix, 1, sum)  
+apply(dataMatrix, 1, mean)
+
+#using a for loop on matrix
+for(row in 1:nrow(dataMatrix)){
+  for(col in 1:ncol(dataMatrix)){
+      print(dataMatrix[row,col]); 
+  }
+}
+
+#now sum all the values in each column
+dataMatrix;
+for(col in 1:ncol(dataMatrix)){
+  print(sum(dataMatrix[,col])); 
+}
+
+#now sum all the values in each row
+dataMatrix;
+for(row in 1:nrow(dataMatrix)){
+  print(sum(dataMatrix[row,])); 
+}

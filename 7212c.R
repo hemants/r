@@ -72,8 +72,67 @@ boxplot(dataFrame)
 # Both these vectors should be of different lengths
 # [ Case 1: when longer length is a multiple of shorter length. 
 # Case 2: longer length is not a multiple of shorter length]
+num_vector_case1_1 = c(1:5)
+num_vector_case1_2 = c(1:10)
 
+num_vector_case2_1 = c(1:5)
+num_vector_case2_2 = c(1:7)
 #a. Combine these two vectors to create a matrix
+matrix_case1 = cbind(num_vector_case1_1, num_vector_case1_2);matrix_case1
+
+matrix_case2 = rbind(num_vector_case2_1, num_vector_case2_2);matrix_case2 
+#warning: number of columns of result is not a multiple of vector length
 
 #b. Combine these two vectors to create a data frame. What are your observations
 #Hint: To create a matrix you may use cbind and to create a data frame use data.frame
+dataFrame_case1 = data.frame(num_vector_case1_1, num_vector_case1_2);dataFrame_case1
+
+dataFrame_case2 = data.frame(num_vector_case2_1, num_vector_case2_2);dataFrame_case2
+#error: arguments imply differing number of rows: 5, 7
+
+
+#2. We have seen that in a two-dimensional object for e.g., a matrix, to perform the subset, 
+# we use square brackets [ ]. Inside this, the index is given as [rows , columns]. 
+# For e.g., If m is a matrix, m[2,3] gives out the element at 2nd row and 3rd column and so on. 
+# Now let’s create a matrix of size 3 X5 with the values 1,7, 10, 15, 8, 3, 2, 23, 9, 11, 7, 2, 8,19,1 
+# and values filled by row
+
+q2Matrix = matrix(data = c(1,7, 10, 15, 8, 3, 2, 23, 9, 11, 7, 2, 8,19,1 ),nrow = 3, byrow = T );q2Matrix
+
+#a. Extract all the elements that are greater than or equal to 10 from the matrix. Observe the format of the output
+for(row in 1:nrow(q2Matrix)){
+  for(col in 1:ncol(q2Matrix)){
+    if(q2Matrix[row,col] >= 10){
+      print(q2Matrix[row,col]); 
+    }
+  }
+}
+
+#b. Now, I want to extract all the rows, if the row has value 10 in any of the second column.
+for(row in 1:nrow(q2Matrix)){
+  for(col in 1:ncol(q2Matrix)){
+    if(col %% 2 ==0 && q2Matrix[row,col] == 10){
+      print(q2Matrix[row,]);
+      break;
+    }
+  }
+}
+
+#c. Name the rows as r1,r2 and so on and columns as c1,c2 and so on. This can be done
+# using function dimnames.
+q2Matrix = matrix(data = c(1,7, 10, 15, 8, 3, 2, 23, 9, 11, 7, 2, 8,19,1 ),nrow = 3, byrow = T, dimnames= list(c("r1","r2","r2"),c("c1","c2","c3","c4","c5")) );
+q2Matrix;
+# Please look in help on how to use it. We have used this
+# function in matrix function in class as well. 
+# Let’s subset the matrix using the row and column names instead of indices.
+
+# Since these are names and not indices, we may need to use quotes.
+# i. Get the element of second row and third columns
+q2Matrix[2,3]
+# ii. Get all elements of third column
+q2Matrix[,3]
+# iii. Get elements of first and second row of first column
+q2Matrix[c(1,2),1]
+
+
+
