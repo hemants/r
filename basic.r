@@ -54,7 +54,7 @@ class(vector_all) #numeric example
 
 #create vector using sequeance
 1:10
-vector_seq = 1:5
+vector_seq = 1:5;vector_seq
 vector_seq_1 = c(1:2,100:102,500)
 
 #special keywords for letters
@@ -76,7 +76,7 @@ length(vector_empty)  #0
 length(vec_empty_num)
 
 #Extract elements from a vector
-vector_num = c(1,2,5:10)
+vector_num = c(1,2,5:10);vector_num
 vector_num[1]
 
 #Get Sequeance of element by index
@@ -88,7 +88,13 @@ vector_num[vector_num>5]
 
 #seq function
 seq(12,15) #generate number from 12 to 15
-seq(1,10,2) #generate number from 1 to 10 but step by 2
+seq(1,11,2) #generate number from 1 to 10 but step by 2
+
+#sample random 10 number from a vector
+sampleVals = sample(1:100,10); sampleVals
+
+#sort vector
+sort(sampleVals)
 
 #vactor calculation
 vec_a = c(75:350);vec_a

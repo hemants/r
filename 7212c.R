@@ -1,5 +1,5 @@
-#1. For the data given above, create a data frame in R, and do the following
-
+# ____________Statistics Assignment__________________________________________
+#Q1. For the data given above, create a data frame in R, and do the following
 group1 = c(0,0,0,0,0,0,1,1,1,16)
 group2 = c(3,12,3.5,14,3,2.8,5,9,5.5,9)
 group3 = c(14,9.5,4.5,7.5,5,2,4.8,3.6,6,8.5)
@@ -53,22 +53,22 @@ mean(df_vector)
 sd(df_vector)
 var(df_vector)
 
-#2. boxplot is a function in R to visualize a boxplot in R. 
+#Q2. boxplot is a function in R to visualize a boxplot in R. 
 # Study the syntax and get the boxplot of the data given above.
 boxplot(dataFrame)
 
 # Do you observe any extreme values in any of the groups and 
-# Ans: Group 1 have extream value, outlier
+# Answer: Group 1 have extream value, outlier
 
 # which groups are more similar than others?
-# Ans:  Group 3 & 4 
+# Answer:  Group 3 & 4 
 
 #3. Please review the probability lecture notes and solutions covered previously
 
-#-----------------------------------------------------------------------------------------------
-# R Assignment
 
-#1. Create two numeric vectors (elements of your choice). 
+#_______________________ R Assignment ___________________________________________
+
+#Q1. Create two numeric vectors (elements of your choice). 
 # Both these vectors should be of different lengths
 # [ Case 1: when longer length is a multiple of shorter length. 
 # Case 2: longer length is not a multiple of shorter length]
@@ -91,7 +91,7 @@ dataFrame_case2 = data.frame(num_vector_case2_1, num_vector_case2_2);dataFrame_c
 #error: arguments imply differing number of rows: 5, 7
 
 
-#2. We have seen that in a two-dimensional object for e.g., a matrix, to perform the subset, 
+#Q2. We have seen that in a two-dimensional object for e.g., a matrix, to perform the subset, 
 # we use square brackets [ ]. Inside this, the index is given as [rows , columns]. 
 # For e.g., If m is a matrix, m[2,3] gives out the element at 2nd row and 3rd column and so on. 
 # Now let’s create a matrix of size 3 X5 with the values 1,7, 10, 15, 8, 3, 2, 23, 9, 11, 7, 2, 8,19,1 
@@ -120,8 +120,8 @@ for(row in 1:nrow(q2Matrix)){
 
 #c. Name the rows as r1,r2 and so on and columns as c1,c2 and so on. This can be done
 # using function dimnames.
-q2Matrix = matrix(data = c(1,7, 10, 15, 8, 3, 2, 23, 9, 11, 7, 2, 8,19,1 ),nrow = 3, byrow = T, dimnames= list(c("r1","r2","r2"),c("c1","c2","c3","c4","c5")) );
-q2Matrix;
+dimnames(q2Matrix) = list(c("r1","r2","r2"),c("c1","c2","c3","c4","c5"));dimnames(q2Matrix)
+
 # Please look in help on how to use it. We have used this
 # function in matrix function in class as well. 
 # Let’s subset the matrix using the row and column names instead of indices.
